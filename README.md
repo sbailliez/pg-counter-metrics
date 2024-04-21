@@ -190,7 +190,7 @@ CloudWatch’s Rate Metric Math : Returns the rate of change of the metric per s
 ## PG Counter Metrics  Alarms :
 
 PGCM provide cloud formation template that will provide basics alarms ,
-you can edit the template to add more alarms, customize alarm Threshold and Period, add Notification etc. please refer to [AWS cloudwatch Alarms documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)
+you can edit the template to add more alarms, customize alarm Threshold and Period, add Notification etc. please refer to [AWS CloudWatch Alarms documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)
 and [AWS CloudFormation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html)
 
 |   #   | Alarm Name      | Description    | 
@@ -504,7 +504,7 @@ psql -h [hostname or RDS endpoint] -p [Port] -d [Database name ] -U [user name]
 1- Enabling IAM database authentication 
 
 you have to Enable the IAM database authentication to use the IAM Database Authentication.
-please refere to RDS Doc for [how to enable IAM DB authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.html)
+please refer to RDS Doc for [how to enable IAM DB authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.html)
 
 Also you you can use AWS CLI to check and enable the IAMDB DB authentication
 
@@ -604,7 +604,7 @@ then update the Parameters
 
 
 #### 2.3 Use cloudformation to deploy the PGCM table metrics dashboard (per table)
-This cloudformation will create CLoud watch Dashbord for table metric.
+This cloudformation will create CLoud watch Dashboard for table metric.
 You need to use this cloudformation  for each table you need to creat dashboard of it .
 
 cloud formation template location and name : CF/PGCM_Table_metrics_Dashboard.yaml
@@ -658,7 +658,7 @@ then update the Parameters
 <image src = "img/CF_Create_Stack_queryid_1.png"></image> 
 <image src = "img/CF_Create_Stack_queryid_2.png"></image> 
 
-#### 2.5 Use cloudformation to deploy cloudwatch alrams
+#### 2.5 Use cloudformation to deploy CloudWatch alarms
 
 **Notes**: this cloud formation template will provide basics alarms ,
 you can edit the template to add more alarms, customize alarm Threshold and Period, add Notification etc. 
@@ -679,20 +679,20 @@ then update the Parameters
 
 
 ## FAQ :
-- will PGCM change or access my data ?
+- Will PGCM change or access my data ?
 
 > No, PGCM will not change or access your data,  PGCM will read postgresql performance data only as PCGM DB user have only pg_monitor role
 pg_monitor	Read/execute various monitoring views and functions. This role is a member of pg_read_all_settings, pg_read_all_stats and pg_stat_scan_tables.
 
-- will PGCM flood my DB with many connection ? 
+- Will PGCM flood my DB with many connection ? 
 
 >No, PGCM DB user is limited by two session only so PGCM will not flood your DB with connection PGCM will start to fail if there is 2 session in the DB 
 
-- will PGCM cause any long running query ?
+- Will PGCM cause any long running query ?
 
 > No , PGCM will set statement_timeout = 10sec in session level , if there is any query take more than 10 sec it will be terminated automatically
 
-- Dose PGCM support/use  SSL ?
+- Does PGCM support/use  SSL ?
 
 > Yes it does,  PGCM use RDS SSL by default and it is using the following certificate https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem.
 >

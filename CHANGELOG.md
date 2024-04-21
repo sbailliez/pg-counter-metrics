@@ -60,7 +60,7 @@
 
 4. Rename Oldest_Replication_Slot_Lag_gb_behind_per_slot_(slot_name) to Replication_Slot_Lag_(slot_name) ;
 
-5. Change the unites of both Oldest_Replication_Slot_Lag and Replication_Slot_Lag_(slot_name) to be bytes instead of GB .
+5. Change the units of both Oldest_Replication_Slot_Lag and Replication_Slot_Lag_(slot_name) to be bytes instead of GB .
 
 6. Fix the user name in create_database_user_pwd_pgcm.sql .
 

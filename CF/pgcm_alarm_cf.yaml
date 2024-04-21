@@ -14,7 +14,7 @@ Resources:
     Type: AWS::CloudWatch::Alarm
     Properties:
       AlarmName: !Sub ${DBInstanceIdentifier}_PGCM_Status_Alarm
-      AlarmDescription: if this mertic in alram this mean PGCM is not working
+      AlarmDescription: if this metric in alarm this mean PGCM is not working
       ComparisonOperator: GreaterThanOrEqualToThreshold 
       Threshold: '1'
       Period: '60'
