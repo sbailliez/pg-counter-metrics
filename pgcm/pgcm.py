@@ -42,7 +42,7 @@ tables_list = tables_config.tables_list
 #creating a global SSL context
 sslctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 sslctx.load_verify_locations(rds_config.CA_CERT)
-# to disable SSL remove # befor sslctx = None  
+# to disable SSL remove # before sslctx = None
 # sslctx = None
 
 
@@ -230,7 +230,7 @@ def handler(event, context):
     logger.info("SUCCESS: Connection to RDS postgres instance succeeded")
     try:
         logger.info("------------------------------")
-        logger.info("Sarting the queries execution")
+        logger.info("Starting the queries execution")
         logger.info("------------------------------")
         
         logger_debug.debug("Executing result_percent_towards_wraparound")

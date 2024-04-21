@@ -15,12 +15,12 @@ Pg Counter Metrics ( PGCM ) components  :
     - AWS Secrets Manager
     - python
 
-**Note**: PG Counter Metrics support only one database in the PostgreSQL instance , in the future release it will suppport more than one Database and it will provide database performance metrics per database .
+**Note**: PG Counter Metrics support only one database in the PostgreSQL instance , in the future release it will support more than one Database and it will provide database performance metrics per database .
 
 ## Why do we need PG Counter Metrics (PGCM) ?
 - PostgreSQL has no any historical performance data
 - PG Counter Metrics’s CloudWatch metrics will be used with CloudWatch alarms to be the advanced alarm system 
-- PGCM provide comprehensive dashbaord and metrics 
+- PGCM provide comprehensive dashboard and metrics 
 
 
 
@@ -178,7 +178,7 @@ There are three type of Dashboard same like the metrics
     2- Dashboard for Table metrics Dashboard (per table)
     3- Dashboard for pg_stat_statements (per query id)
 ```
-the deafult option is to create the dashboard by using the could formation that already provided in the below steps but you still have the option to create custom dashboard please refer to [AWS cloud watch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create_dashboard.html)   
+the default option is to create the dashboard by using the could formation that already provided in the below steps but you still have the option to create custom dashboard please refer to [AWS CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create_dashboard.html)   
 
 **Note**: 
 Some metrics use CloudWatch’s Rate Metric Math
@@ -191,7 +191,7 @@ CloudWatch’s Rate Metric Math : Returns the rate of change of the metric per s
 
 PGCM provide cloud formation template that will provide basics alarms ,
 you can edit the template to add more alarms, customize alarm Threshold and Period, add Notification etc. please refer to [AWS cloudwatch Alarms documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)
-and [AWS cloudFormation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html)
+and [AWS CloudFormation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html)
 
 |   #   | Alarm Name      | Description    | 
 | :---: | :-------------- | :------------- | 
@@ -214,7 +214,7 @@ Example of the output
 ```
 [Mohamed@dev-dsk pgcm]$ sh build.sh
 
-Removeing existing pgcm_1.8.zip file
+Removing existing pgcm_1.8.zip file
 
 zip -r pgcm_1.8.zip pgcm.py rds_config.py tables_config.py scramp/ pg8000/ certs/ asn1crypto/
 
@@ -359,7 +359,7 @@ set environment variables:
 ```
 export AWS_PROFILE= < >
 ```
--> set the RDS PostgreSQL DB INSTANCE IDENTIFIER as environment variable
+-> set the RDS PostgreSQL DB_INSTANCE_IDENTIFIER as environment variable
 ```
 export DB_INSTANCE_IDENTIFIER=
 ```
@@ -369,7 +369,7 @@ export DB_INSTANCE_IDENTIFIER=
 export REGION=
 ```
 
--> run below AWS cli to get the infomation 
+-> run below AWS cli to get the information 
 
 ```
 aws rds describe-db-instances --db-instance-identifier ${DB_INSTANCE_IDENTIFIER} --profile ${AWS_PROFILE}  | grep VpcId
@@ -432,7 +432,7 @@ aws ec2 describe-vpc-endpoint-services \
 #### 1.5- Update the database Security Group 
 To allow lambda to connect the DB  and also allow lambda to connect to cloud watch from the same VPC .
 
-**Note**: Assuming that you have one Security Group for all the databases in same region and using same port for all the databases , if you are using diffrent port or Security Group you have to update each Security Group with the DB port 
+**Note**: Assuming that you have one Security Group for all the databases in same region and using same port for all the databases , if you are using different port or Security Group you have to update each Security Group with the DB port 
 
 -> get the VPC CIDR
 
@@ -625,7 +625,7 @@ then update the Parameters
 
 #### 2.4 Use cloudformation to deploy the PGCM query metrics dashboard (per query ID)
 
-use below query to list the top 20 query that consume the DB time and select the query ID that you want to create Dashboared for 
+use below query to list the top 20 query that consume the DB time and select the query ID that you want to create Dashboard for 
 
 ```
 select  queryid,substring(query,1,60) as query , calls, 

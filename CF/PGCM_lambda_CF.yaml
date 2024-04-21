@@ -104,7 +104,7 @@ Resources:
           DB_USERNAME: !Ref DatabaseUser
           DB_PORT: !Ref DBPort
           RDS_ENDPOINT: !Ref DBEndpoint
-          DB_INSATCNE_IDENTIFIER: !Ref DBInstanceIdentifier
+          DB_INSTANCE_IDENTIFIER: !Ref DBInstanceIdentifier
           AUTHENTICATION_TYPE: !Ref AuthenticationType
           PASSWORD: !Ref Password
           SCHEMA_LIST: !Ref SchemaList
@@ -185,7 +185,7 @@ Resources:
           DB_USERNAME: !Ref DatabaseUser
           DB_PORT: !Ref DBPort
           RDS_ENDPOINT: !Ref DBEndpoint
-          DB_INSATCNE_IDENTIFIER: !Ref DBInstanceIdentifier
+          DB_INSTANCE_IDENTIFIER: !Ref DBInstanceIdentifier
           AUTHENTICATION_TYPE: !Ref AuthenticationType
           SCHEMA_LIST: !Ref SchemaList
           TABLES_LIST: !Ref TablesList

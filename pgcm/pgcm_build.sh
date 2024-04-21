@@ -13,7 +13,7 @@ ZIP_FILE=pgcm_$ver.zip
 # bin the old zipfile
 if [ -f $ZIP_FILE ]; then
 	echo " "
-	echo "Removeing existing $ZIP_FILE file"
+	echo "Removing existing $ZIP_FILE file"
 	rm -rf $ZIP_FILE
 fi
 

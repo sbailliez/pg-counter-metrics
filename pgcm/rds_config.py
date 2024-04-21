@@ -17,9 +17,9 @@ if db_name is None:
     
 
 #metric_name
-metric_name = os.getenv("DB_INSATCNE_IDENTIFIER")+"_pgcm"
+metric_name = os.getenv("DB_INSTANCE_IDENTIFIER")+"_pgcm"
 if metric_name is None:
-    raise Exception("Must Provide Db Insatcne Identifier. Environment variable DB_INSATCNE_IDENTIFIER")
+    raise Exception("Must Provide Db Instance Identifier. Environment variable DB_INSTANCE_IDENTIFIER")
 
 
 #rds_host
@@ -33,11 +33,11 @@ db_port = os.getenv("DB_PORT")
 if db_port is None:
     raise Exception("Must Provide DB PORT. Environment variable DB_PORT")
 
-# db_username defaine the DB user name that will be used by PGCM to connect to the PG DB 
+# db_username define the DB user name that will be used by PGCM to connect to the PG DB
 db_username = "user_pgcm"
 
 
-# auth_type defaine the authentication Type 
+# auth_type define the authentication Type
 
 auth_type_check =os.getenv("AUTHENTICATION_TYPE")
 if auth_type_check is None:
